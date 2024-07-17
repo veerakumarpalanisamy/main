@@ -24,7 +24,7 @@ const signinController = async (req, res) => {
        const {email,password} = req.body;
        const validUser= await User.findOne({ email });
        if(!validUser)
-           return res.json({msg: "user was not found", success: false})
+           return res.json({msg: "user was not found", success: false}) 
        const validPassword = bcrypt.compareSync(password, validUser.password);
        if(!validPassword){
         return res.json({ msg: "wrong password", success: false });
